@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings Page</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/profile}">Profile</a></li>
+            <li><a th:href="@{/settings}">Settings</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h2>Account Settings</h2>
+        <form th:action="@{/settings/update}" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" th:value="${user.username}" required />
+            
+            <label for="password">New Password:</label>
+            <input type="password" id="password" name="password" />
+            
+            <button type="submit">Update Settings</button>
+        </form>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Your Application Name</p>
+    </footer>
+</body>
+</html>

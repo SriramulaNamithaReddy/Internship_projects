@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
+        .container { width: 400px; margin: 100px auto; padding: 20px; background: white; border-radius: 8px; text-align: center; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background: #45a049; }
+        a { text-decoration: none; color: rgb(255, 255, 255); }
+        a:hover { text-decoration: underline; }
+        .navbar{
+			text-align: center;
+			background:radial-gradient(rgb(0, 0, 255) 30%,lightblue);
+	        border-radius:60px;
+	        padding:10px;
+		}
+		.dashboard{
+			text-align: center;
+			padding: 10px;
+			border-radius: 60px;
+			
+		}
+		h2{
+			font-size:50px ;
+		}
+		.navlink{
+			text-decoration: none;
+			padding: 0px 10px 0px 10px;
+			font-size: 25px;
+		}
+    </style>
+</head>
+<body>
+    
+    
+    <nav>
+		<div class="dashboard">
+			<h2>Dashboard</h2>
+		</div>
+		<div class="navbar">
+            <a class="navlink" th:href="@{/home}">Home</a>
+            <a class="navlink" th:href="@{/profile}">Profile</a>
+            <a class="navlink" th:href="@{/settings}">Settings</a>
+            <a class="navlink" th:href="@{/logout}">Logout</a>
+        </div>
+    </nav>
+    
+    <main>
+        
+        <p>This is your home page. You are now logged in!</p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Your Application Name</p>
+    </footer>
+</body>
+</html>
+

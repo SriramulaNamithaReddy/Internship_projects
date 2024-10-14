@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <title>Local Store - Home</title>
+</head>
+<body>
+		<div class="nav-bar" style="display: inline-block; justify-content: space-between; align-items: center; padding: 10px;">
+			<form action="/search" method="get" style="display: flex; align-items: center;">
+				<input type="text" name="query" placeholder="Search for products..." style="padding: 5px;">
+				<button type="submit" class="btn" style="margin-left: 10px;">Search</button>
+			</form>
+		
+			
+		</div>
+    <h1>Products</h1>
+    <div class="product-list" th:each="product : ${listProducts}">
+        <div class="product-item">
+            <img th:src="${product.imageUrl}" alt="Product Image" width="300" height="200">
+            <h3 th:text="${product.name}"></h3>
+            <p th:text="${product.description}"></p>
+            <p>$<span th:text="${product.price}"></span></p>
+            <a th:href="@{/product/{id}(id=${product.id})}" class="btn">View Details</a>
+        </div>
+       
+    </div>
+     <a href="/cart" class="btn"
+				style="padding: 5px 10px; text-decoration: none; background-color: #333; color: white; border-radius: 5px;">Back
+				to Cart</a>
+</body>
+</html>

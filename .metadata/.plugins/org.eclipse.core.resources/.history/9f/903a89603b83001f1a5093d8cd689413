@@ -1,0 +1,27 @@
+package in.Namitha.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import in.Namitha.entity.User;
+import in.Namitha.repo.UserRepository;
+@Service
+public class UserService {
+	@Autowired
+    private UserRepository userRepo;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public User register(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole("USER"); // default role
+        return userRepo.save(user);
+    }
+    
+    public User findByUsername(String username) {
+        return userRepo.findByUsername(username);
+    }
+
+}

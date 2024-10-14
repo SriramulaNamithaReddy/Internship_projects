@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header"></head>
+<body>
+    <h2>Employee List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>IDNo</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Department</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.idno}"></td>
+                <td th:text="${employee.fname}"></td>
+                <td th:text="${employee.lname}"></td>
+                <td th:text="${employee.email}"></td>
+                <td th:text="${employee.role}"></td>
+                <td th:text="${employee.department}"></td>
+                <td>
+                    <a th:href="@{'/employees/' + ${employee.idno}}">View</a> |
+                    <a th:href="@{'/employees/edit/' + ${employee.idno}}">Edit</a> |
+                    <a th:href="@{'/employees/delete/' + ${employee.idno}}"
+                       onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/employees/add}">Add New Employee</a>
+    
+    <footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

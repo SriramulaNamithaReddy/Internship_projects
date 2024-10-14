@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+    <header>
+        <h1>Profile: <span th:text="${#authentication.name}">User</span></h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/profile}">Profile</a></li>
+            <li><a th:href="@{/settings}">Settings</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h2>Your Profile Details</h2>
+        <p>Username: <span th:text="${user.username}">User</span></p>
+        
+        <a th:href="@{/settings}">Edit Profile Information</a>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Your Application Name</p>
+    </footer>
+</body>
+</html>

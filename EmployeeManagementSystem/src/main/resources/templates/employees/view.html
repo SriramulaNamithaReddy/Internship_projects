@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header"></head>
+<body>
+    <h2>Employee Details</h2>
+    <table>
+        <tr>
+            <th>IDNo</th>
+            <td th:text="${employee.idno}"></td>
+        </tr>
+        <tr>
+            <th>First Name</th>
+            <td th:text="${employee.fname}"></td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td th:text="${employee.lname}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td th:text="${employee.email}"></td>
+        </tr>
+        <tr>
+			<th>Role</th>
+			<td th:text="${employee.role}"></td>
+		</tr>
+        <tr>
+            <th>Department</th>
+            <td th:text="${employee.department}"></td>
+        </tr>
+    </table>
+    <a th:href="@{/employees}">Back to Employee List</a> |
+    <a th:href="@{'/employees/edit/' + ${employee.idno}}">Edit</a>
+    <footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

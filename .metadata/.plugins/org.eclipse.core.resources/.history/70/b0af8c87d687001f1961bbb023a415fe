@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
+        .container { width: 300px; margin: 100px auto; padding: 20px; background: white; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Home Page!</h1>
+        <p>This is the home page of the application.</p>
+        <p><a th:href="@{/login}">Login</a> | <a th:href="@{/register}">Register</a></p>
+    </div>
+</body>
+</html>

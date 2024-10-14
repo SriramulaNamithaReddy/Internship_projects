@@ -1,0 +1,5 @@
+package in.Namitha.controller;
+
+public class AuthController {
+
+}

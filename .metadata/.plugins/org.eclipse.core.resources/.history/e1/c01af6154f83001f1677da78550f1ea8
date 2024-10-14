@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for: <span th:text="${searchQuery}"></span></h1>
+
+    <div class="product-list">
+        <!-- Iterate over the search results and display each product -->
+        <div th:each="product : ${product}">
+            <img th:src="${product.imageUrl}" alt="Product Image" width="150" height="100">
+            <h3 th:text="${product.name}"></h3>
+            <p th:text="${product.description}"></p>
+            <p>Price: $<span th:text="${product.price}"></span></p>
+        </div>
+    </div>
+</body>
+</html>

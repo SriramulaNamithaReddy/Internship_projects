@@ -1,0 +1,24 @@
+package in.nami.controller;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+
+    @GetMapping("/session-check")
+    public String sessionCheck() {
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication auth = context.getAuthentication();
+
+        if (auth != null && auth.isAuthenticated()) {
+            return "User is logged in: " + auth.getName();
+        } else {
+            return "No user is logged in.";
+        }
+    }
+}
+
